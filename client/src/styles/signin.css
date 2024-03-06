@@ -1,0 +1,53 @@
+
+.page{
+    background-image: url("../assets/signinUp.png");
+    background-repeat: no-repeat;
+    background-color: black;
+    height:100vh;
+    width:auto;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+
+.info{
+    display: flex;
+    padding-top: 100px ;
+    padding-bottom: 100px;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.form-container{
+    text-align: center;
+}
+.form-container div{
+    padding-top: 20px;
+}
+
+.form-container div input{
+    border:none;
+    color:white;
+    background-color: rgba(211, 211, 211, 0.3);
+    height:45px;
+    width: 225px;
+    border-radius: 5px;
+    padding-left: 10px;
+    font-size: 18px;
+}
+
+
+.form-container div button{
+    height: 35px;
+    width: 140px;
+    border-radius: 5px;
+    border:none;
+    color:white;
+    background-color: rgba(211, 211, 211, 0.3);
+}
+::placeholder{
+    color: white;
+    
+}
