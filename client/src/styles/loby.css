@@ -1,0 +1,65 @@
+.body{
+    background-image: url("../assets/bg.png");
+    background-repeat: no-repeat;
+    background-color: black;
+    height:100rem;
+    width:auto;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+
+}
+
+.boxes{
+    flex-direction:row;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height:100vh;
+}
+
+.boxes div{
+    margin:10px;
+    height:250px;
+    width:200px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+.bulgarian-box img{
+    width: 200px;
+    height: auto;
+    display: flex;
+    
+}
+.bulgarian-box{
+    border-radius: 10px;
+    background-color: rgba(211, 211, 211, 0.3);
+}
+.bulgarian-box .content{
+    margin: 0;
+}
+.math-box{
+    border-radius: 10px;
+    background-color: rgba(211, 211, 211, 0.3);
+}
+.math-box .content{
+    margin: 0;
+    
+}
+.english-box .content{
+
+    margin: 0;
+    
+}
+.english-box{
+    border-radius: 10px;
+    background-color: rgba(211, 211, 211, 0.3);
+}
+
+.boxes div:hover{
+    box-shadow: 0 8px 16px 0 rgba(255, 255, 255, 0.2);
+}

@@ -4,7 +4,7 @@ import axios from "axios"
 import "../styles/signin.css"
 import Navbar from '../components/Navbar/Navbar'
 import Footer from '../components/Footer/Footer'
-import Loby from "./Loby.jsx"
+
 export default function SignIn() {
   const [username, setUsername] = useState("")
   const [password, setPassword] = useState("")

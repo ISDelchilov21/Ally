@@ -26,7 +26,7 @@ export default function SignUp() {
     })
     .catch(function(error) {
       console.log(error, "error")
-      if(error.response.status ==401){
+      if(error.response.status ===401){
         alert("Invalid credantials")
       }
     })
