@@ -2,16 +2,20 @@ from flask import Flask, jsonify, request, session
 from flask_bcrypt import Bcrypt
 from flask_cors import CORS, cross_origin
 from models import User, db
+from flask_socketio import send, join_room, leave_room,SocketIO
+
 
 app = Flask("__name__")
 
+CORS(app, supports_credentials=True)
 
 app.config['SQLALCHEMY_DATABASE_URI'] = "postgresql://postgres:1234@localhost/ally"
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SECRET_KEY'] = 'edgfhjhk'
+socketio = SocketIO(app, cors_allowed_origins="http://localhost:3000")
 
 bcrypt = Bcrypt(app)
-CORS(app, supports_credentials=True)
+
 db.init_app(app)
 
 with app.app_context():
@@ -61,5 +65,26 @@ def login_user():
     else:
         return jsonify({"message": "Invalid username or password"}), 401
 
+@socketio.on('join')
+def on_join(data):
+    room = data['room']
+    join_room(room)
+
+@socketio.on('leave')
+def on_leave(data):
+    room = data['room']
+    leave_room(room)
+
+@socketio.on("message")
+def message(data):
+    message = data["message"]
+    room = data.get("room",  "default")
+    send({"message":message, "room":room}, room=room)
+
+
+
+
+
+
 if __name__ == "__main__":
-    app.run(debug=True)
+    socketio.run(app, debug=True)
