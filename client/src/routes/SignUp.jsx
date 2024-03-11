@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import axios from "axios"
 import "../styles/signup.css"
 import Navbar from '../components/Navbar/Navbar'
-import Footer from '../components/Footer/Footer'
 import { useNavigate } from 'react-router-dom'
 
 export default function SignUp() {
@@ -130,7 +129,6 @@ export default function SignUp() {
           </div>
         </div>
       </div>
-      <Footer />
     </div>
   );
 }

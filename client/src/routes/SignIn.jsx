@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router-dom'
 import axios from "axios"
 import "../styles/signin.css"
 import Navbar from '../components/Navbar/Navbar'
-import Footer from '../components/Footer/Footer'
 import Cookies from "js-cookie"
 
 export default function SignIn() {
@@ -58,8 +57,6 @@ export default function SignIn() {
             </div>
           </div>
         </div>
-
-      <Footer/>
     </div>
   )
 }
