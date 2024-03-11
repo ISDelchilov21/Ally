@@ -1,0 +1,32 @@
+.username-fname{
+    display: flex;
+    flex-direction: row;
+
+}
+.username-fname div{
+    margin-left: 10px;
+}
+
+.city-school{
+    display: flex;
+    flex-direction: row;
+}
+.city-school div{
+    margin-left: 10px;
+}
+
+.pass-email{
+    display: flex;
+    flex-direction: row;
+}
+.pass-email div{
+    margin-left: 10px;
+}
+
+.grade-info{
+    display: flex;
+    flex-direction: row;
+}
+.grade-info div{
+    margin-left:10px ;
+}

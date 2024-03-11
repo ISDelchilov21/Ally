@@ -3,9 +3,36 @@
     background-image: url("../assets/bg.png");
     background-repeat: no-repeat;
     background-color: black;
-    height:100rem;
+    height:100%;
     width:auto;
     display: flex;
     flex-direction: column;
     position: relative;
+}
+
+.info-home{
+    padding-top: 100px;
+}
+
+
+.info-home p{
+    color: white;
+    font-size: 32px;
+}
+
+.info-home div{
+    width:600px;
+    height: 300px;
+    padding-top: 10px;
+    margin-left: 100px;
+    margin-right: 100px;
+
+}
+
+.right-div{
+    float: right;
+}
+
+.left-div{
+    float: left;
 }

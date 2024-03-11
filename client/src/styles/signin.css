@@ -45,9 +45,9 @@
     border-radius: 5px;
     border:none;
     color:white;
+    font-size: 18px;
     background-color: rgba(211, 211, 211, 0.3);
 }
 ::placeholder{
     color: white;
-    
 }

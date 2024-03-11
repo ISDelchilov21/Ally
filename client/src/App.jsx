@@ -14,6 +14,7 @@ export default function App(){
         {path:"/", element:<Home/>},
         {path:"/user-account/signup", element:<SignUp/>},
         {path:"/user-account/signin", element:<SignIn/>},
+        {path:"/login", element:<SignIn/>},
         {path:"/loby-classrooms", element:<Loby/>},
         {path:"/loby-clasrooms/bulgarian", element:<Bulgarian/>},
         {path:"/loby-clasrooms/math", element:<Math/>},

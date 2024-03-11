@@ -4,12 +4,15 @@ import axios from "axios"
 import "../styles/signin.css"
 import Navbar from '../components/Navbar/Navbar'
 import Footer from '../components/Footer/Footer'
+import Cookies from "js-cookie"
 
 export default function SignIn() {
   const [username, setUsername] = useState("")
   const [password, setPassword] = useState("")
 
   const navigate = useNavigate()
+  
+
   const handleLogin = ()=>{
     if(username.length === 0){
       alert("Email has left the Blanck")
@@ -19,11 +22,15 @@ export default function SignIn() {
     }
     else{
       axios.post("http://127.0.0.1:5000/login", {
-        UserName:username,
+        Username:username,
         Password:password
       })
       .then(function(response){
+        setUsername(response.data.username)
+        
         console.log(response)
+        Cookies.set("sessionId", response.data.access_token)
+        localStorage.setItem("isLoggedIn", "true")
         navigate("/loby-classrooms")
       })
       .catch(function(error){
@@ -34,6 +41,7 @@ export default function SignIn() {
       })
     }
   }
+  
   return (
     <div className='page'>
       <Navbar/>

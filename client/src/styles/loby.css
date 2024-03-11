@@ -31,8 +31,22 @@
 
 .bulgarian-box img{
     width: 200px;
-    height: auto;
+    height: 100px;
     display: flex;
+    margin-bottom: 15px;
+}
+.math-box img{
+    width: 200px;
+    height:100px;
+    display: flex;
+    margin-bottom: 15px;
+
+}
+.english-box img{
+    width: 200px;
+    height:100px;
+    display: flex;
+    margin-bottom: 15px;
     
 }
 .bulgarian-box{
@@ -63,3 +77,4 @@
 .boxes div:hover{
     box-shadow: 0 8px 16px 0 rgba(255, 255, 255, 0.2);
 }
+
