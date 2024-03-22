@@ -50,7 +50,7 @@ export default function SignIn() {
               <input type='text' placeholder='Username' value={username} onChange={(e) => setUsername(e.target.value)}></input>
             </div>
             <div>
-              <input type='password ' placeholder='Passwrod' value={password} onChange={(e) => setPassword(e.target.value)}></input>
+              <input type='password' name="password" placeholder='Passwrod' value={password} onChange={(e) => setPassword(e.target.value)}></input>
             </div>
             <div>
               <button type='submit' onClick={handleLogin}>Submit</button>

@@ -30,7 +30,7 @@ export default function SignUp() {
     })
     .then(function(response) {
         console.log(response);
-        navigate("/loby-classrooms");
+        navigate("/login");
     })
     .catch(function(error) {
         console.log(error, "error");

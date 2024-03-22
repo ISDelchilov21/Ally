@@ -16,19 +16,31 @@
     border-radius: 5px;
     justify-content: center;
     background-color:  rgba(211, 211, 211, 0.3);
+    flex-direction: column;
+    align-items: center;
 
     
 }
 .side-bar ul{
     list-style: none;
     margin-top: 50px;
+    overflow: auto;
+    margin-bottom: 10px;
 }
+
+.side-bar ul::-webkit-scrollbar{
+    background-color:transparent;
+    width: 7px;
+    
+}
+
 
 .side-bar ul li{
     color:white;
     display: flex;
     align-items: center;
     margin-top: 10px;
+    
 }
 
 .side-bar ul li img{

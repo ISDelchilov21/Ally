@@ -132,13 +132,31 @@ def on_join(data):
 def on_leave(data):
     room = data['room']
     leave_room(room)
-
+@app.route("/users") 
+def get_users():
+    users = User.query.all()
+    user_data = [
+        {"id": user.Id, "username": user.Username} for user in users
+    ]
+    return jsonify(user_data)
 @socketio.on("message")
 def message(data):
-    username = data.get("username")
+    user_id = session.get('user_id') 
+    username = data.get("username", "Uknown")  # Get the username of the user who sent the message
     message = data.get("message")
     room = data.get("room", "default")
-    send({"message": message, "room": room, "username": username}, room=room)
+    send({
+        "message": message, 
+        "room": room, 
+        "username": username, 
+        "user_id": user_id 
+    }, room=room)
+
+
+@app.route("/usernames")  
+def get_usernames():
+    usernames = [user.Username for user in User.query.all()]
+    return jsonify(usernames) 
 
 if __name__ == "__main__":
     sess.init_app(app)

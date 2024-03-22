@@ -1,31 +1,26 @@
 import React, { useEffect, useState } from "react";
 import NavbarRooms from "../components/NavbarRooms/NavbarRooms";
-import AccountImage from "../assets/user.png";
 import Send from "../assets/send.png";
 import io from "socket.io-client";
 import axios from "axios";
 import "../styles/bulgarian.css";
 
 export default function Bulgarian() {
-    const [room, setRoom] = useState("room3");
+    const [room, setRoom] = useState("room1");
   const [messages, setMessages] = useState(() => {
     const savedMessages = localStorage.getItem(`chatMessages_${room}`);
     return savedMessages ? JSON.parse(savedMessages) : [];
   });
   const [inputText, setInputText] = useState("");
   const [socket, setSocket] = useState(null);
-  const [username, setUsername] = useState(null);
+  const [usernames, setUsernames] = useState([]);
 
   useEffect(() => {
     axios
-      .get("http://127.0.0.1:5000/users")
+    .get("http://127.0.0.1:5000/usernames")
       .then((response) => {
-        setUsername(
-          response.data.reduce((acc, user) => {
-            acc[user.id] = user.username;
-            return acc;
-          }, {})
-        );
+        console.log("Usernames Response:", response.data);
+        setUsernames(response.data);
       })
       .catch((error) => {
         console.error("Error fetching usernames", error);
@@ -69,12 +64,12 @@ export default function Bulgarian() {
 
   const sendMessage = () => {
     if (socket) {
-      const senderUsername = "User1";
-      socket.emit("message", {
-        message: inputText,
-        room: room,
-        username: senderUsername,
-      });
+      if (usernames) {
+        socket.emit("message", {
+          message: inputText,
+          room: room,
+        });
+      }
       setInputText("");
     }
   };
@@ -91,28 +86,12 @@ export default function Bulgarian() {
       <NavbarRooms setRoom={setRoom} />
       <div className="chat-container">
         <div className="side-bar">
+          <h1>Users</h1>
           <ul>
-            <h1>Users</h1>
-            <li>
-              <img src={AccountImage} alt="Account" />
-              Ivancho
-            </li>
-            <li>
-              <img src={AccountImage} alt="Account" />
-              Ivancho
-            </li>
-            <li>
-              <img src={AccountImage} alt="Account" />
-              Ivancho
-            </li>
-            <li>
-              <img src={AccountImage} alt="Account" />
-              Ivancho
-            </li>
-            <li>
-              <img src={AccountImage} alt="Account" />
-              Ivancho
-            </li>
+            
+            {usernames.map((username, index) => (
+              <li key={index}>{username}</li>
+            ))}
           </ul>
         </div>
         <div className="chat-main">
@@ -120,12 +99,7 @@ export default function Bulgarian() {
             {messages.map((message, index) => (
               <div className="message" key={index}>
                 <p className="meta">
-                  {console.log("Username:", username)}
-                  {console.log("Message:", message)}
-                  {(username &&
-                    message.username &&
-                    username[message.username]) ||
-                    "Loading.."}
+                  Ally's users
                 </p>
                 <p className="text">{message}</p>
               </div>

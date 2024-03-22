@@ -16,7 +16,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    
+    color: white;
     background-color:  rgba(211, 211, 211, 0.3);
 }
 .user-details-box{
